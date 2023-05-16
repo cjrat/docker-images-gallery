@@ -21,7 +21,7 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: 12345
 
   mongo-express:
-    image: mongo-express
+    image: mongo-express:0.54
     restart: always
     ports:
       - 8081:8081
@@ -30,6 +30,7 @@ services:
       ME_CONFIG_MONGODB_ADMINPASSWORD: 12345
       ME_CONFIG_MONGODB_URL: mongodb://root:12345@mongo:27017/
       ME_CONFIG_MONGODB_SERVER: mongo
+      ME_CONFIG_MONGODB_ENABLE_ADMIN: true
     depends_on:
       - mongo
 
